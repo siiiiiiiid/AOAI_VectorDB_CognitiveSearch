@@ -70,19 +70,3 @@ if prompt:
     st.write("Question:", prompt)
     st.write("Answer:", result["answer"])
     st.session_state.history.append((prompt, result["answer"]))
-    
-
-    #chat_history = [(prompt, result["answer"])]
-    #st.write("Answer:", result["answer"])
-
-
-#chat_history = []
-#query = "what is Azure OpenAI Service?"
-#result = qa({"question": query, "chat_history": chat_history})
-
-#print("Question:", query)
-#print("Answer:", result["answer"])
-
-#chat_history = [(query, result["answer"])]
-#query = "Which regions does the service support?"
-#result = qa({"question": query, "chat_history": chat_history})
