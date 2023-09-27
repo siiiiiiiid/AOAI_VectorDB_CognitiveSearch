@@ -1,4 +1,4 @@
-# AOAI_VectorDB_CognitiveSearch
+# Azure OpenAI + VectorDB + CognitiveSearch
 > Quick demo: Azure OpenAI integration with Vector Database and Cognitive Search
 
 ## Deployment steps:
@@ -7,7 +7,7 @@
 
 - Create a deployment of ChatGPT 3.5
 - Create a deployment of embedding ada 002
-- Create a Cognitive Search service with at least basic tier
+- Create a Cognitive Search service with at least basic tier pricing
 - Optional: create a search index, if you don't the 'demo' index will be created
 
 ### Code
@@ -45,9 +45,7 @@ streamlit run .\app.py
 - what is Azure OpenAI Service?
 - Which regions does the service support?
 
-All the data is coming from this repo: https://github.com/microsoft/azure-openai-in-a-day-workshop/tree/main/data/qna
-
-## Story
+ ## Story
 
 There is a cool capability in Azure Cognitive Search called Vector Search.
 This is something that can really help us when you want to chat with your own data using Azure OpenAI like chatGPT 4.
@@ -73,3 +71,12 @@ Here are a couple of use cases this architecture can cover from [Documentation](
 >Filtered vector search. A query request can include a vector query and a filter expression. Filters apply to text and numeric fields, and are useful for including or excluding search documents based on filter criteria. Although a vector field isn't filterable itself, you can set up a filterable text or numeric field. The search engine processes the filter after the vector query executes, trimming search results from query response.
 >
 >Vector database. Use Cognitive Search as a vector store to serve as long-term memory or an external knowledge base for Large Language Models (LLMs), or other applications. For example, you can use Azure Cognitive Search as a vector index in an Azure Machine Learning prompt flow for Retrieval Augmented Generation (RAG) applications.
+
+So now we can start searching text based on their vector instead of keywords or just semantic search. This is really powerfull as well if you have text in multiple languages because a vector represent a context! So you can query even if the language is different because the embedding model is taking care of the vector creation.
+
+We have the choice to go towards vector search or semantic search and if you wonder which one is better, well Azure Cognitive Search comes with a hybrid search ! You can have the best of both world. Basically will get the result of both methods and you will be able to do some ranking if you want to.
+
+For more details about vector search the documentation is available [here](https://learn.microsoft.com/en-us/azure/search/vector-search-overview#vector-search-concepts) but basically it uses a mechanism called [Approximate Neares Neighbors](https://learn.microsoft.com/en-us/azure/search/vector-search-overview#approximate-nearest-neighbors) it maps the vector space of the embeddings and execute and algorithim that finds the nearest vector for that embedding.
+
+## Source
+All the data is coming from this repo: https://github.com/microsoft/azure-openai-in-a-day-workshop/tree/main/data/qna
