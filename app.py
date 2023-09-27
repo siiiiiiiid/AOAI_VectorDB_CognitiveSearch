@@ -86,7 +86,3 @@ if prompt:
 #chat_history = [(query, result["answer"])]
 #query = "Which regions does the service support?"
 #result = qa({"question": query, "chat_history": chat_history})
-
-#print("Question:", query)
-#print("Answer:", result["answer"])
-
