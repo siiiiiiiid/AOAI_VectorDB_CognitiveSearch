@@ -23,11 +23,15 @@ AZURE_COGNITIVE_SEARCH_API_KEY=KEY
 AZURE_COGNITIVE_SEARCH_INDEX_NAME=demo
 ```
 
-## Tools: Azure Open AI Azure Cognitive Search Langchain Streamlit
+## Tools: 
+- Azure OpenAI 
+- Azure Cognitive Search 
+- Langchain 
+- Streamlit
 
-- Questions:
-what is Azure OpenAI Service?
-Which regions does the service support?
+## Questions:
+- what is Azure OpenAI Service?
+- Which regions does the service support?
 
 All the data is coming from this repo: https://github.com/microsoft/azure-openai-in-a-day-workshop/tree/main/data/qna
 
