@@ -62,14 +62,14 @@ One if the issue we are going to face is, Azure Cognitive Search does not genera
 
 Here are a couple of use cases this architecture can cover from [Documentation](https://learn.microsoft.com/en-us/azure/search/vector-search-overview)
 
-_Vector search for text. Encode text using embedding models such as OpenAI embeddings or open source models such as SBERT, and retrieve documents with queries that are also encoded as vectors.
-
-Vector search across different data types (multi-modal). Encode images, text, audio, and video, or even a mix of them (for example, with models like CLIP) and do a similarity search across them.
-
-Multi-lingual search. Use a multi-lingual embeddings model to represent your document in multiple languages in a single vector space to find documents regardless of the language they are in.
-
-Hybrid search. Vector search is implemented at the field level, which means you can build queries that include both vector fields and searchable text fields. The queries execute in parallel and the results are merged into a single response. Optionally, add semantic search (preview) for even more accuracy with L2 reranking using the same language models that power Bing.
-
-Filtered vector search. A query request can include a vector query and a filter expression. Filters apply to text and numeric fields, and are useful for including or excluding search documents based on filter criteria. Although a vector field isn't filterable itself, you can set up a filterable text or numeric field. The search engine processes the filter after the vector query executes, trimming search results from query response.
-
-Vector database. Use Cognitive Search as a vector store to serve as long-term memory or an external knowledge base for Large Language Models (LLMs), or other applications. For example, you can use Azure Cognitive Search as a vector index in an Azure Machine Learning prompt flow for Retrieval Augmented Generation (RAG) applications._
+>Vector search for text. Encode text using embedding models such as OpenAI embeddings or open source models such as SBERT, and retrieve documents with queries that are also encoded as vectors.
+>
+>Vector search across different data types (multi-modal). Encode images, text, audio, and video, or even a mix of them (for example, with models like CLIP) and do a similarity search across them.
+>
+>Multi-lingual search. Use a multi-lingual embeddings model to represent your document in multiple languages in a single vector space to find documents regardless of the language they are in.
+>
+>Hybrid search. Vector search is implemented at the field level, which means you can build queries that include both vector fields and searchable text fields. The queries execute in parallel and the results are merged into a single response. Optionally, add semantic search (preview) for even more accuracy with L2 reranking using the same language models that power Bing.
+>
+>Filtered vector search. A query request can include a vector query and a filter expression. Filters apply to text and numeric fields, and are useful for including or excluding search documents based on filter criteria. Although a vector field isn't filterable itself, you can set up a filterable text or numeric field. The search engine processes the filter after the vector query executes, trimming search results from query response.
+>
+>Vector database. Use Cognitive Search as a vector store to serve as long-term memory or an external knowledge base for Large Language Models (LLMs), or other applications. For example, you can use Azure Cognitive Search as a vector index in an Azure Machine Learning prompt flow for Retrieval Augmented Generation (RAG) applications.
