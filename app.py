@@ -43,7 +43,7 @@ docs = text_splitter.split_documents(documents)
 # Add documents to Azure Search with their embeddings
 acs.add_documents(documents=docs)
 
-# Adapt if needed
+# Building prompt
 CONDENSE_QUESTION_PROMPT = PromptTemplate.from_template("""Given the following conversation and a follow up question, rephrase the follow up question to be a standalone question.
 
 Chat History:
@@ -71,8 +71,6 @@ if 'history' not in st.session_state:
     st.session_state.history = []
 
 if prompt:    
-    #query = "what is Azure OpenAI Service?"
-    #result = qa({"question": prompt, "chat_history": []})
     chat_history = st.session_state.history
     result = qa({"question": prompt, "chat_history": chat_history})
     st.write("Question:", prompt)
