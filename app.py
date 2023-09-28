@@ -30,13 +30,17 @@ acs = AzureSearch(azure_search_endpoint=os.getenv('AZURE_COGNITIVE_SEARCH_SERVIC
                  index_name=os.getenv('AZURE_COGNITIVE_SEARCH_INDEX_NAME'),
                  embedding_function=embeddings.embed_query)
 
+# Load data from disk
 loader = DirectoryLoader('data/qna/', glob="*.txt", loader_cls=TextLoader, loader_kwargs={'autodetect_encoding': True})
-
 documents = loader.load()
+
+# Chunk documents into smaller pieces
+# 1000 for the chunk size is the default value
+# Chunk overlap is set to 0 to avoid duplicate chunks but you can change that value to increase context
 text_splitter = TokenTextSplitter(chunk_size=1000, chunk_overlap=0)
 docs = text_splitter.split_documents(documents)
 
-# Add documents to Azure Search
+# Add documents to Azure Search with their embeddings
 acs.add_documents(documents=docs)
 
 # Adapt if needed
@@ -47,6 +51,7 @@ Chat History:
 Follow Up Input: {question}
 Standalone question:""")
 
+# Using Langchain to create a conversation with chatGPT based on the data retrieved from Azure Cognitive Search
 qa = ConversationalRetrievalChain.from_llm(llm=llm,
                                            retriever=acs.as_retriever(),
                                            condense_question_prompt=CONDENSE_QUESTION_PROMPT,
@@ -54,10 +59,13 @@ qa = ConversationalRetrievalChain.from_llm(llm=llm,
                                            verbose=False)
 
 
+# Create a nice title for our webUI
 st.title('🦜🔗 GPT Bring your own docs')
+
 #Create text input box
 prompt = st.text_input('Enter prompt here:')
 
+# Create a session state to store the chat history for the follow up questions
 chat_history = []
 if 'history' not in st.session_state:
     st.session_state.history = []
